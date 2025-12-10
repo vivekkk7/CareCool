@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareCool- AC and Repair Services</title>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Khula:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <!-- google icon -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+    <!--Font awesome icon-->
+    <script src="https://kit.fontawesome.com/6ac775d87f.js" crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>Review Page</title>
+    <style>
+        .review {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 15px 40px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .review img {
+            border-radius: 50%;
+            max-width: 100px;
+            max-height: 100px;
+            margin-right: 10px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
+
+        }
+
+        .user-info img {
+            height: 30px;
+            border-radius: 100%;
+            width: 30px;
+        }
+
+        .user-name {
+            font-size: 18px;
+            color: #404040;
+        }
+
+        .star-rating {
+            display: flex;
+            align-items: center;
+            color: rgb(255, 162, 0);
+        }
+
+        .review-text {
+            overflow: hidden;
+            word-wrap: break-word;
+            /* Allow word breaks */
+            white-space: pre-wrap;
+            /* Preserve whitespace and allow wrapping */
+            width: 100%;
+            font-size: 16px;
+            color: rgb(68, 68, 68);
+
+        }
+
+        #submit-form {
+            margin-top: 20px;
+        }
+
+        .circle {
+            height: 50px;
+            width: 50px;
+            border-radius: 100%;
+        }
+
+        select {
+            color: rgb(255, 187, 0);
+            font-size: 20px;
+        }
+
+        .star {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- nav 2 -->
+    <nav class="nav2">
+        <div class="nav20 flex align-center">
+            <div><a href="javascript:void(0)" class="threedot" id="threedot">&#9776;</a></div>
+            <!-- logo -->
+            <div class="logo"><a href="/">CareC<span class="logo_oo">oo</span>l</a></div>
+
+            <div class="navitem">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="javascript:void(0)">Services&nbsp;&nbsp;&nbsp;<i
+                                class="fa-solid fa-caret-down"></i></a>
+                        <ul class="navsub_ser_ul sub_ul">
+                            <li class="subul_head">Services</li>
+                            <li><a href="javascript:void(0)">Washing Machine</a></li>
+                            <li><a href="javascript:void(0)">Air Conditioner</a></li>
+                            <li><a href="javascript:void(0)">Refrigerator</a></li>
+                            <li><a href="javascript:void(0)">Television</a></li>
+                            <li><a href="javascript:void(0)">Mobiles</a></li>
+                            <li><a href="javascript:void(0)">Laptop</a></li>
+                            <li><a href="javascript:void(0)">Cooler</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/track">Track</a>
+                    </li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/about">About&nbsp;Us</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- nav con -->
+        <div class="nav23 nav2_btn flex align-center" style="flex-wrap: nowrap;">
+            <!-- progress -->
+            <div class="navopt">
+                <a href="/track" title="Track Your Service"><i class="fa-solid fa-chart-gantt"></i></a>
+            </div>
+
+            <!-- appoint form -->
+            <div class="navopt">
+                <a href="/#appointmentform" title="Fill Appointment Form"><i class="fa-regular fa-file-lines"></i></a>
+            </div>
+            <!-- bell -->
+            <!-- <div class="srhbtn" id="bell_btn" title="Notification"><i class="fa-regular fa-bell"></i>
+                <div class="bell_condiv">
+                    <h4>Notifications</h4>
+                    <ul class="bell_con">
+                        <li>No Notification</li>
+                    </ul>
+                </div>
+            </div> -->
+            <!-- mech reigstratiion -->
+            <%-mechreg%>
+                <!-- signup -->
+                <%-sign%>
+
+                    <!-- user btn -->
+                    <%-userbtn%>
+        </div>
+    </nav>
+    <style>
+        * {
+            user-select: none;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            position: relative;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            text-transform: capitalize;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .align-center {
+            align-items: center;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .justify-around {
+            justify-content: space-around;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+    </style>
+    <style>
+        .nav2 {
+            display: flex;
+            position: relative;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: nowrap;
+            height: 70px;
+            z-index: 1000000;
+            padding: 0 20px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 5px 4px -4px rgba(57, 76, 96, .15);
+        }
+
+        div.logo {
+            margin-left: 20px;
+        }
+
+        div.logo>a {
+            position: relative;
+            margin-left: 5px;
+            color: #2593d2;
+            font-weight: 800;
+            font-size: 26px;
+        }
+
+        span.logo_oo {
+            position: relative;
+            visibility: hidden;
+        }
+
+        span.logo_oo:before {
+            content: "oo";
+            top: -3px;
+            font-size: 23px;
+            animation: squash 1.5s linear infinite;
+            animation-delay: 2s;
+        }
+
+        span.logo_oo:before,
+        span.logo_oo:after {
+            position: absolute;
+            left: 50%;
+            bottom: 5px;
+            visibility: visible;
+            transform: translateX(-50%);
+        }
+
+        span.logo_oo:after {
+            content: "";
+            bottom: 5px;
+            width: 20px;
+            height: 5px;
+            border: 3px solid #31a0e1;
+            border-top: 0;
+            -moz-border-radius: 0 0 120px 120px / 0 0 90px 90px;
+            -webkit-border-radius: 0 0 120px 120px 0 0 90px 90px;
+            border-radius: 0 0 120px 120px / 0 0 90px 90px;
+        }
+
+        @keyframes squash {
+            0% {
+                transform: translate(-50%, 0%) scaleX(0.80) scaleY(1.20);
+            }
+
+            50% {
+                transform: translate(-50%, 0%) scaleX(1) scaleY(1);
+                animation-delay: 1s;
+            }
+
+            100% {
+                transform: translate(-50%, 0%) scaleX(0.80) scaleY(1.20);
+            }
+        }
+
+
+        .nav23_span:last-child {
+            margin-right: 0;
+        }
+
+        .nav23_span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 35px;
+            width: 35px;
+            margin: 5px 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            background-color: #e2efed;
+            border-radius: 50%;
+        }
+
+        .nav23_span i {
+            font-size: 17px;
+            color: #39596a;
+        }
+
+        .navitem>ul {
+            display: flex;
+            margin-left: 40px;
+        }
+
+        .navitem>ul>li {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .navitem>ul>li>a,
+        .sub_ul>li>a,
+        .bell_con>li {
+            color: black;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 20px;
+            margin: 0 1px;
+            font-family: 'Khula';
+        }
+
+        .sub_ul {
+            display: none;
+            position: absolute;
+            top: 50px;
+            width: 200px;
+            padding: 5px 0;
+            background-color: white;
+            box-shadow: 4px 4px 8px 2px rgba(57, 76, 96, .15);
+            border-radius: 7px;
+        }
+
+        .sub_ul>li,
+        .sub_ul>li>a,
+        .bell_con>li {
+            padding: 5px 10px;
+        }
+
+        .navitem>ul>li:hover .sub_ul {
+            display: block;
+        }
+
+        .sub_ul>li:hover:not(:first-child),
+        .navitem>ul>li>a:hover {
+            color: rgb(0, 171, 233);
+        }
+
+        .subul_head {
+            font-size: 16px;
+            margin-left: 5px;
+            font-weight: 700;
+        }
+
+
+        .signup_btn,
+        .srhbtn,
+        .threedot,
+        .navopt {
+            cursor: pointer;
+            padding: 10px 14px;
+            margin: 1px;
+            font-weight: 600;
+            border-radius: 5px;
+        }
+
+        .srhbtn {
+            font-size: 19px;
+        }
+
+        .navopt,
+        .userbtn {
+            font-size: 17px;
+        }
+
+        .threedot {
+            display: none;
+            color: black;
+            padding: 10px;
+        }
+
+        .navopt>a:hover,
+        .signup_btn:hover,
+        .srhbtn:hover,
+        .threedot:hover,
+        .navopt:hover {
+            color: rgb(0, 171, 233);
+        }
+
+        .signup_btn>p:nth-child(1) {
+            font-size: 11px;
+            font-weight: 700;
+            margin: 0;
+            padding: 0;
+        }
+
+        .signup_btn>p:nth-child(2) {
+            font-size: 14px;
+            font-weight: 700;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        @media screen and (max-width: 1000px) {
+            .navitem>ul {
+                margin-left: 30px;
+            }
+
+            .navitem>ul>li>a {
+                padding: 10px 15px;
+            }
+
+            .navitem>ul>li:last-child {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 850px) {
+            .navitem {
+                display: none;
+            }
+
+            div.logo {
+                margin-left: 0;
+            }
+
+            .threedot {
+                display: block;
+            }
+        }
+    </style>
+    <style>
+        @media screen and (max-width: 950px) {
+            .hide_s1 {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 750px) {
+
+            .nav1,
+            .nav2 {
+                padding-left: 4px !important;
+                padding-right: 4px !important;
+            }
+
+            .hide_s1 {
+                display: flex;
+            }
+        }
+
+        @media screen and (max-width: 550px) {
+            .hide_s1 {
+                display: none;
+            }
+
+            .signup_btn,
+            .srhbtn,
+            .threedot {
+                padding: 10px;
+            }
+        }
+
+        @media screen and (max-width: 430px) {
+
+            .signup_btn,
+            .srhbtn,
+            .threedot,
+            .navopt {
+                padding: 10px 9px;
+            }
+
+            .signup_btn>p:nth-child(1) {
+                font-size: 9px;
+            }
+
+            .signup_btn>p:nth-child(2) {
+                font-size: 11px;
+            }
+        }
+    </style>
+    <script>
+        document.getElementById('cust_sign').addEventListener('click', function () {
+            window.location.href = "/auth";
+        });
+        document.getElementById('mech_sign').addEventListener('click', function () {
+            window.location.href = "/mechanic-registration";
+        });
+        function profile() {
+            window.location.href = "/profile";
+        }
+
+    </script>
+
+
+
+    <!-- sidebarrr -->
+    <script>
+        function logout() {
+            document.cookie = "userid= ; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+            document.cookie = "field= ; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+            window.location.href = "/";
+        }       
+    </script>
+
+    <!-- sidebar -->
+    <div class="sidebar">
+        <div class="sidebar1">
+            <div class="close_side"><span>&times;</span></div>
+            <div class="side_profile"><a href="/profile"><span class="sideicon"><i
+                            class="fa-regular fa-circle-user"></i></span>Profile</a></div>
+            <ul class="side_ul">
+                <li><a href="/"><span class="sideicon"><i class="fa-solid fa-house"></i></span>Home</a></li>
+                <li><a href="/"><span class="sideicon"><i class="fa-solid fa-wrench"></i></span>Appointment Form</a>
+                </li>
+                <li><a href="/track"><span class="sideicon"><i class="fa-solid fa-location-arrow"></i></span>Track</a>
+                </li>
+                <li><a href="/contact"><span class="sideicon"><i
+                                class="fa-solid fa-mobile-screen-button"></i></span>Contact</a></li>
+                <li><a href="/about"><span class="sideicon"><i class="fa-regular fa-star"></i></span>About us</a></li>
+                <li onclick="logout()"><a href="Javascript:void(0)"><span class="sideicon lgoutbtn"><i
+                                class="fa-solid fa-right-from-bracket"></i></span>LogOut</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <style>
+        div.sidebar {
+            position: fixed;
+            height: 100vh;
+            width: 300px;
+            background-color: rgb(249, 250, 251);
+            top: 00px;
+            left: -500px;
+            z-index: 100000;
+            font-weight: 600;
+            transition: all .5s ease;
+        }
+
+        .sidebar1 {
+            position: relative;
+            padding: 10px;
+            margin-top: 70px;
+        }
+
+        .close_side {
+            position: absolute;
+            right: 20px;
+            font-size: 22px;
+            line-height: 1px;
+            top: 15px;
+            cursor: pointer;
+            padding: 16px 10px;
+            border-radius: 50%;
+            background-color: rgb(241, 239, 253);
+        }
+
+        .side_profile {
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .side_profile>a {
+            color: black;
+        }
+
+        .side_ul>li {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .side_ul>li>a {
+            color: black;
+        }
+
+        .side_ul>li:hover a,
+        .close_side:hover {
+            color: rgb(1, 141, 141);
+        }
+
+        .sideicon {
+            margin-right: 20px;
+            padding-left: 10px;
+        }
+    </style>
+    <script>
+        $('#threedot').click(function () {
+            var sidebar = $(".sidebar");
+            if (sidebar.css("left") === "0px") {
+                sidebar.css("left", "-500px");
+            } else {
+                sidebar.css("left", "0px");
+            }
+        });
+        $('.close_side').click(function () {
+            $('.sidebar').css('left', '-500px');
+        });
+    </script>
+
+
+    <section class="mailus" style="padding-top: 0;">
+        <div class="mail">
+            <div class="img">
+                <img src="/images/review1.png" alt="">
+            </div>
+            <div class="info">
+                <h3 style="font-size: 27px;">Write a Review</h3>
+                <form class="sendMail" id="userReviewForm" method="post" action="/review">
+                    <input type="text" id="name" name="name" placeholder="Name" required>
+
+                    <select id="rating" name="rating" required>
+                        <option class="star-rating" value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+                        <option class="star-rating" value="4">&#9733;&#9733;&#9733;&#9733;</option>
+                        <option class="star-rating" value="3">&#9733;&#9733;&#9733;</option>
+                        <option class="star-rating" value="2">&#9733;&#9733;</option>
+                        <option class="star-rating" value="1">&#9733;</option>
+                    </select>
+                    <textarea style="height: 160px;" id="review" name="review" rows="4" placeholder="Review"
+                        required></textarea>
+                    <input style=" color: white; background-color: #6200ff;" type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div id="reviews-container">
+        <% for (let i=reviews.length - 1; i>= 0; i--) { %>
+            <div class="review">
+                <div class="user-info">
+                    <img src="http://source.unsplash.com/feature/200x200/?user" alt="">
+                    <div class="user-name">
+                        <%= reviews[i].name %>
+                    </div>
+                </div>
+                <div class="star-rating">
+                    <% for (let j=0; j < reviews[i].rating; j++) { %>
+                        <span class="star"><i class="fa-solid fa-star"></i></span>
+                        <% } %>
+                </div>
+                <div class="review-text">
+                    <%= reviews[i].reviewText %>
+                </div>
+            </div>
+            <% } %>
+    </div>
+
+
+    <!-- footer -->
+
+    <div class="footer">
+        <div class="footer1 foot1">
+            <div class="footer11">
+
+                <div class="logo"><a href="/">CareC<span class="logo_oo">oo</span>l</a></div>
+
+                <div class="about_div">
+                    <p>CareCool Services is your trusted partner for all HVAC solutions. With a commitment to
+                        excellence, we offer prompt repairs, expert installations, and maintenance services. Contact us
+                        for unparalleled comfort. Your satisfaction is our priority. Serving you with dedication and
+                        expertise."</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer2 foot1">
+            <div class="footer21">
+                <h4>Our Services</h4>
+                <ul class="footer2_ul">
+                    <li><a href="javascript:void(0)">Washing Machine</a></li>
+                    <li><a href="javascript:void(0)">Air Conditioner</a></li>
+                    <li><a href="javascript:void(0)">Refrigerator</a></li>
+                    <li><a href="javascript:void(0)">Television</a></li>
+                    <li><a href="javascript:void(0)">Mobiles</a></li>
+                    <li><a href="javascript:void(0)">Laptop</a></li>
+                    <li><a href="javascript:void(0)">Cooler</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer2 foot2">
+            <div class="footer21">
+                <h4>Quick Links</h4>
+                <ul class="footer2_ul">
+                    <li><a href="/mechanic-registration">Mechanic Registration</a></li>
+                    <li><a href="/#appointmentform">Appointment Form</a></li>
+                    <li><a href="/track">Track Service</a></li>
+                    <li><a href="/auth">Signup/Login</a></li>
+                    <li><a href="/contact">Contact us</a></li>
+                    <li><a href="/about">About&nbsp;Us</a></li>
+                    <li><a href="/review">Review</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer2 foot2">
+            <div class="footer21">
+                <h4>Contact Us</h4>
+                <ul class="footer2_ul">
+                    <li><a href="Mailto:carecool.info@gmail.com"><span
+                                class="footer_li_span">Mail&nbsp;:</span>carecool.info@gmail.com</a></li>
+                    <li><a href="tel:6960651271"><span class="footer_li_span">Phone&nbsp;:</span>+91&nbsp;6960651271</a>
+                    </li>
+                    <li><a href="whatsapp://send?phone=6960651271&text=I found your service on CareCool"><span
+                                class="footer_li_span">Whatsapp&nbsp;:</span>+91&nbsp;6960651271</a></li>
+                    <li><a href="sms:6960651271"><span class="footer_li_span">SMS&nbsp;:</span>+91&nbsp;6960651271</a>
+                    </li>
+                </ul>
+                <div class="ss_link">
+                    <a href="https://www.facebook.com/profile.php?id=100094409345355&mibextid=ZbWKwL"
+                        target="_blank"><span class="ss_span"><i id="logofb"
+                                class="fa-brands fa-facebook"></i></span></a>
+                    <a href="https://www.twitter.com/vivektweet_20" target="_blank"><span class="ss_span"><i id="logofb"
+                                class="fa-brands fa-twitter"></i></span></a>
+                    <a href="https://www.instagram.com/memetary_humour/" target="_blank"><span class="ss_span"><i
+                                id="logoinsta" class="fa-brands fa-instagram"></i></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="c_line">
+        <p>Copyright &#169; 2023. All Right Reserve by <span style="text-transform: lowercase;">CareCool</span></p>
+    </div>
+
+
+</body>
+
+</html>

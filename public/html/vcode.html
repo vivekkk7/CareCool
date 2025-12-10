@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp - CareCool</title>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Khula:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <!-- google icon -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+    <!--Font awesome icon-->
+    <script src="https://kit.fontawesome.com/6ac775d87f.js" crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- AngularJs -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style>
+        * {
+            user-select: none;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: 'Khula', sans-serif;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .m_auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sn1">
+        <div class="sn2">
+            <!-- logo -->
+            <div class="logo"><a href="/">CareC<span class="logo_oo">oo</span>l</a></div>
+
+            <h2 style="margin-bottom: 8px;">Verify your email address</h2>
+            <p>A verification code is sent to your email </p>
+            <p id="em_name"></p>
+            <p id="l32">Enter verification code</p>
+            <form action="/vcode" method="post" id="vform">
+                <input class="myinput" id="vcode" name="vcode" type="text" autofocus />
+                <input type="hidden" name="vuserid" id="vuserid" />
+            </form>
+            <div  style="min-height: 30px; margin-top: 30px;"><p id="v_msg">&nbsp;</p></div>
+            <p style="text-align: center; font-size: 13px; padding: 15px 20px 0;">If you did not get Email, then make sure that you <br /> have entered correct email or again fill the form.</p>
+        </div>
+    </div>
+
+    <style>
+        .logo {
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .logo>a {
+            height: fit-content;
+            margin-left: 5px;
+            color: #2593d2;
+            font-weight: 800;
+            font-size: 26px;
+        }
+
+        .logo_oo {
+            position: relative;
+            visibility: hidden;
+        }
+
+        .logo_oo:before,
+        .logo_oo:after {
+            position: absolute;
+            left: 50%;
+            visibility: visible;
+            transform: translateX(-50%);
+        }
+
+        .logo_oo:before {
+            content: "oo";
+            top: -2px;
+            font-size: 23px;
+            animation: squash 1.5s linear infinite;
+            animation-delay: 2s;
+        }
+
+        .logo_oo:after {
+            content: "";
+            bottom: 11px;
+            width: 20px;
+            height: 5px;
+            border: 3px solid #31a0e1;
+            border-top: 0;
+            -moz-border-radius: 0 0 120px 120px / 0 0 90px 90px;
+            -webkit-border-radius: 0 0 120px 120px 0 0 90px 90px;
+            border-radius: 0 0 120px 120px / 0 0 90px 90px;
+        }
+
+        @keyframes squash {
+            0% {
+                transform: translate(-50%, 0%) scaleX(0.80) scaleY(1.20);
+            }
+
+            50% {
+                transform: translate(-50%, 0%) scaleX(1) scaleY(1);
+                animation-delay: 1s;
+            }
+
+            100% {
+                transform: translate(-50%, 0%) scaleX(0.80) scaleY(1.20);
+            }
+        }
+
+        div.sn1 {
+            position: fixed;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        div.sn2 {
+            text-align: center;
+            overflow: hidden;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 500px;
+            width: 400px;
+            transform: translate(-50%, -50%);
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            box-shadow: 3px 4px 9px -2px rgba(57, 76, 96, .4);
+        }
+
+        #em_name {
+            margin-top: 0;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        #l32 {
+            margin: 5px 5px 5px;
+            font-weight: 700;
+        }
+
+        #vcode {
+            font-size: 19px;
+            letter-spacing: 10px;
+            width: 170px;
+            border: 1px solid rgb(155, 155, 155);
+            text-align: center;
+            background-color: rgb(255, 255, 255);
+        }
+
+        #vcode:focus {
+            border: 1px solid rgb(0, 0, 0);
+        }
+
+        #v_msg {
+            font-size: 14px;
+            color: red;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            margin: 10px 0px;
+            height: 40px;
+            font-size: 15px;
+            border-radius: 10px;
+            background-color: whitesmoke;
+            border: none;
+            /* border-bottom: 2px solid rgb(219, 219, 219); */
+            outline: none;
+            padding: 0px 15px;
+        }
+
+        .myinput:focus {
+            border: 1px solid rgb(114, 114, 114);
+        }
+    </style>
+
+    <!-- form handling-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const myInput = document.getElementById('vcode');
+            const myForm = document.getElementById('vform');
+
+
+            myForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+            });
+
+            function sendForm(formData) {
+
+                fetch('/auth/vcode', {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('1');
+                        if (data.isvcode == false) {
+                            if (data.vmatch == false) {
+                                $(myInput).css('border', '1px solid red');
+                                $("#v_msg").show().text('Verification code doesnot match.').css('color', 'red');
+                            }
+                            else {
+                                $("#v_msg").show().text(data.verror).css('color', 'red');
+                            }
+                        }
+                        else if (data.isvcode == true) {
+                            const expires = new Date();
+                            expires.setDate(expires.getDate() + 365);
+                            document.cookie = `userid=${data.vcookie}; expires=${expires.toUTCString()}; SameSite=Lax; path=/`;
+                            if (data.field == 'mechanic') {
+                                document.cookie = `field=${data.field}; expires=${expires.toUTCString()}; SameSite=Lax; path=/`;
+                                setTimeout(() =>{
+                                    window.location.href = '/mechanic-dashboard';
+                                }, 1000);
+                            }
+                            else {
+                                setTimeout(() =>{
+                                    window.location.href = "/profile";
+                                }, 1000);
+                            }
+                        }
+                        else {
+                            $("#v_msg").show().text("Something went wrong. Please try again.").css('color', 'red');
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        $("#v_msg").show().text("Something went wrong. Please try again.").css('color', 'red');
+                    });
+            }
+
+            const u1 = window.location.href;
+
+            var url = new URL(u1);
+            var uidParam = url.searchParams.get("userid");
+            var ucodeParam = url.searchParams.get("ucode");
+            document.getElementById('vuserid').value = uidParam;
+
+            if (ucodeParam) {
+                myInput.value = ucodeParam;
+                let formData = new FormData(myForm);
+                sendForm(formData);
+            }
+            else {
+                myInput.addEventListener('input', () => {
+                    myInput.value = myInput.value.slice(0, 6);
+                    myInput.style.border = "1px solid #d5d6d8";
+                    document.getElementById('v_msg').style.display = "none";
+
+                    if (myInput.value.length == 6) {
+                        let formData = new FormData(myForm);
+                        sendForm(formData);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

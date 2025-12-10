@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp - CareCool</title>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Khula:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <!-- google icon -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+    <!--Font awesome icon-->
+    <script src="https://kit.fontawesome.com/6ac775d87f.js" crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- AngularJs -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style>
+        * {
+            user-select: none;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: 'Khula', sans-serif;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .m_auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sn1">
+        <div class="sn2">
+            <div class="sn3">
+                <div class="sn31" id="sn31">
+                    <div class="snhead">
+                        <h2 class="head_h2">Sign&nbsp;Up & Login</h2>
+                        <p class="head_p">What you want to do...</p>
+                        <button class="head_btn" id="head_login">Login</button>
+                        <button class="head_btn" id="head_signup">Sign&nbsp;Up</button>
+                    </div>
+                    <div class="snbody">
+                        <!-- error msg -->
+                        <div class="errdiv">
+                            <p id="msg_p"></p>
+                        </div>
+
+                        <!-- signup -->
+                        <div class="snbody1" id="signupdiv">
+                            <form action="/signup" method="post" id="signup_form">
+                                <input class="myinput" id="sign_email" name="signup_email" type="email"
+                                    placeholder="Enter email... " required />
+                                <input class="myinput" name="signup_password1" id="signup_password1" type="password"
+                                    placeholder="Create password..." required />
+                                <input class="myinput" name="signup_password2" id="signup_password2" type="password"
+                                    placeholder="Confirm password..." required />
+
+                                <div id="signupbtn">
+                                    <input type="submit" id="signup" value="Sign Up" />
+                                </div>
+                                <div class="sending" id="sending" style="display: none;">Sending OTP&nbsp;
+                                    <div class='typing'>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- login -->
+                        <div class="snbody1" id="logindiv">
+                            <form action="/login" method="post" id="login_form">
+                                <input class="myinput" name="login_email" id="login_email" type="email"
+                                    placeholder="Enter email..." required />
+
+                                <input class="myinput" name="login_password" type="password"
+                                    placeholder="Enter password..." required />
+                                <p class="login_option" style="margin: 0px 5px 10px; font-size: 12px; float: right;"><a
+                                        href="#">Forget Password?</a></p>
+                                <input type="submit" id="login" value="Login" />
+                            </form>
+                            <p class="mechp"><a href="/mechanic-registration">Mechanics Registration</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        div.sn1 {
+            position: fixed;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        div.sn2 {
+            overflow: hidden;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 500px;
+            width: 400px;
+            transform: translate(-50%, -50%);
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            box-shadow: 3px 4px 9px -2px rgba(57, 76, 96, .4);
+        }
+
+        div.sn3 {
+            position: relative;
+        }
+
+        div.sn31,
+        div.sn32 {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            padding: 20px;
+            left: 0px;
+            transition: all 0.5s ease;
+        }
+
+        div.sn32 {
+            left: -700px;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        div.sn32 p {
+            margin: 2px;
+        }
+
+        .snhead {
+            text-align: center;
+        }
+
+        .head_h2 {
+            margin: 15px 0 10px 0;
+            font-size: 26px;
+            font-weight: 800;
+        }
+
+        .head_p {
+            margin: 25px 0 10px 0;
+            font-size: 15px;
+        }
+
+        .snbody {
+            position: relative;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        div.errdiv {
+            position: absolute;
+            top: -25px;
+            left: 0;
+            font-size: 14px;
+            width: 100%;
+            text-align: center;
+            color: red;
+        }
+
+        #msg_p {
+            line-height: 1.3;
+            color: red;
+        }
+
+        .snbody1 {
+            max-width: 400px;
+            position: absolute;
+            transition: all 0.5s ease;
+        }
+
+        #logindiv {
+            margin-top: 10px;
+            left: 0;
+        }
+
+        #signupdiv {
+            left: -700px;
+        }
+
+        input,
+        .sending {
+            width: 100%;
+            margin: 10px 0px;
+            height: 40px;
+            font-size: 15px;
+            border-radius: 10px;
+            background-color: whitesmoke;
+            border: none;
+            /* border-bottom: 2px solid rgb(219, 219, 219); */
+            outline: none;
+            padding: 0px 15px;
+        }
+
+        .myinput:focus {
+            border: 1px solid rgb(114, 114, 114);
+        }
+
+        input[type="submit"],
+        .head_btn,
+        .sending {
+            background-color: rgb(255, 0, 0);
+            color: rgb(255, 255, 255);
+            font-weight: 800;
+            margin-top: 20px;
+            width: 100%;
+            border-radius: 50px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover,
+        .head_btn:hover {
+            background-color: rgb(243, 0, 0);
+        }
+
+        @keyframes jump {
+            25% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+
+            75% {
+                transform: translateY(0);
+            }
+        }
+
+        .sending {
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 15px;
+            font-weight: 800;
+        }
+
+        .typing {
+            display: inline-flex;
+            height: 14px;
+            align-items: flex-end;
+        }
+
+        .typing span {
+            width: 5px;
+            height: 5px;
+            background: #ffffff;
+            border-radius: 50%;
+            margin: 0 2px;
+            animation: jump 1500ms infinite;
+        }
+
+        .typing span:nth-child(2) {
+            animation-delay: 250ms;
+        }
+
+        .typing span:nth-child(3) {
+            animation-delay: 500ms;
+        }
+
+        .head_btn {
+            border: none;
+            height: 35px;
+            margin-top: 0;
+            width: 120px;
+        }
+
+        #head_signup {
+            background-color: whitesmoke;
+            color: black;
+        }
+
+        #login {
+            margin-top: 20px;
+        }
+
+        .mechp {
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .mechp a:hover{
+            color: rgb(20, 94, 255) !important;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('#head_signup').click(function () {
+                $(this).css({ 'background-color': 'red', 'color': 'white' });
+                $('#head_login').css({ 'background-color': 'whitesmoke', 'color': 'black' });
+                $('#signupdiv').css('left', '0px');
+                $('#logindiv').css('left', '700px');
+                $('#msg_p').hide();
+            });
+            $('#head_login').click(function () {
+                $(this).css({ 'background-color': 'red', 'color': 'white' });
+                $('#head_signup').css({ 'background-color': 'whitesmoke', 'color': 'black' });
+                $('#logindiv').css('left', '0px');
+                $('#signupdiv').css('left', '-700px');
+                $('#msg_p').hide();
+            });
+        });
+    </script>
+
+    <!-- form handling-->
+
+    <script>
+
+        // login
+        document.getElementById('login_form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var form1 = event.target;
+            var formData1 = new FormData(form1);
+
+            fetch('/auth/login', {
+                method: 'POST',
+                body: formData1
+            })
+                .then(response => response.json())
+                .then(data => {
+
+                    if (data.islogin == true) {
+                        const expires = new Date();
+                        expires.setDate(expires.getDate() + 365);
+                        document.cookie = `userid=${data.lcookie}; expires=${expires.toUTCString()}; SameSite=Lax; path=/`;
+                        if(data.field == 'mechanic'){
+                            document.cookie = `field=${data.field}; expires=${expires.toUTCString()}; SameSite=Lax; path=/`;
+                            window.location.href = '/mechanic-dashboard';
+                        }
+                        else{
+                        window.location.href = "/profile";
+                        }
+                    }
+                    else if (data.islogin == false) {
+                        if (data.lpass == false) {
+                            $("#msg_p").show().text("Password doesnot match");
+                            $('#login_password').css('border', '1px solid red');
+                        }
+                        else if (data.lmail == false) {
+                            $("#msg_p").show().text("Email doesnot match. Please enter another one");;
+                            $('#login_email').css('border', '1px solid red');
+                        }
+                        else {
+                            $("#msg_p").show().text(data.lerror);
+                        }
+
+                    }
+                    else {
+                        $("#msg_p").show().text("Something went wrong. Please try again.");
+                    }
+                })
+                .catch(error => {
+                    $("#msg_p").show().text("Something went wrong. Refresh page to try again.");
+                });
+        });
+
+        // signup
+
+        document.getElementById('signup_form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            if ($('#signup_password2').val() != $('#signup_password1').val()) {
+                $('#signup_password2').css('border', '1px solid red');
+                $('#msg_p').show().text('Confirm password doesnot match.');
+                return;
+            }
+
+            $('#signup').css('display', 'none');
+            $('#sending').css('display', 'flex');
+
+            document.getElementById('signup').disabled = true;
+            this.style.opacity = '0.7';
+
+            var form2 = event.target;
+            var formData2 = new FormData(form2);
+
+            fetch('/auth/signup', {
+                method: 'POST',
+                body: formData2
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('s1');
+                    if (data.issign == true) {
+                        console.log('s2');
+                        document.getElementById('signup').disabled = false;
+                        this.style.opacity = '1';
+                        $('#signup').css('display', 'block');
+                        $('#sending').css('display', 'none');
+                        window.location = data.slink;
+
+                    }
+                    else if (data.issign == false) {
+                        console.log('s3');
+                        if (data.semail == 'exits') {
+                            $('#sign_email').css('border', '1px solid red');
+                        }
+                        $("#msg_p").show().text(data.serror);
+                        document.getElementById('signup').disabled = false;
+                        this.style.opacity = '1';
+                        $('#signup').css('display', 'block');
+                        $('#sending').css('display', 'none');
+                    }
+                    else {
+                        $("#msg_p").show().text("Something went wrong. Please try again.");
+                        document.getElementById('signup').disabled = false;
+                        this.style.opacity = '1';
+                        $('#signup').css('display', 'block');
+                        $('#sending').css('display', 'none');
+                    }
+                })
+                .catch(error => {
+                    $("#msg_p").show().text("Something went wrong. Refresh page and try again.");
+                    document.getElementById('signup').disabled = false;
+                    this.style.opacity = '1';
+                    $('#signup').css('display', 'block');
+                    $('#sending').css('display', 'none');
+                });
+        });
+
+
+        $('#login_email').on('input', function () {
+            $('#msg_p').hide();
+            $(this).css('border', '1px solid rgb(114, 114, 114)');
+        });
+        $('#login_password').on('input', function () {
+            $('#msg_p').hide();
+            $(this).css('border', '1px solid rgb(114, 114, 114)');
+        });
+
+        $('#sign_email').on('input', function () {
+            $('#msg_p').hide();
+            $(this).css('border', '1px solid rgb(114, 114, 114)');
+        });
+
+        $('#signup_password2').on('input', function () {
+            $('#msg_p').hide();
+            $(this).css('border', '1px solid rgb(114, 114, 114)');
+        });
+
+    </script>
+</body>
+
+</html>

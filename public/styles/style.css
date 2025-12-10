@@ -1,0 +1,1170 @@
+/* nav css style */
+
+* {
+    user-select: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #ffffff;
+}
+
+.m_auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.heading {
+    margin-top: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 6px;
+    align-items: center;
+    width: fit-content;
+    height: 56px;
+    border-radius: 0 50px 50px 0;
+    display: flex;
+    background-color: #dcdcdc;
+}
+
+.heading h3 {
+    margin: 0;
+    font-size: 26px;
+    color: rgb(0, 0, 0);
+    margin: 10px 10px 0px 10px;
+}
+
+.icon-divH {
+    z-index: 100;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-divH .fa-iconH {
+    font-size: 22px;
+}
+
+
+.fa-iconH {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: 45px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: white;
+    border-radius: 100%;
+}
+
+@media (orientation:portrait) {
+    .heading h3 {
+        font-size: 23px;
+        margin-top: 7px;
+    }
+
+    .heading {
+        height: 50px;
+        margin-top: 30px;
+    }
+
+    .fa-iconH {
+        height: 40px;
+        width: 40px;
+    }
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    text-transform: capitalize;
+}
+
+.flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+
+
+/* about us page css */
+.aboutUs {
+    padding: 140px 0 140px 40px;
+    display: flex;
+    height: fit-content;
+
+}
+
+.aboutUs .con {
+    width: 1100px;
+    /* margin: auto;
+    padding: 20px 20px; */
+    height: 100%;
+}
+
+.con h2 {
+    font-size: 40px;
+    font-weight: 900;
+    color: #6200ff;
+    margin-bottom: 20px;
+}
+
+.con p {
+    font-size: 20px;
+    color: #797979;
+    margin-bottom: 10px;
+}
+
+.group {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.groupImg {
+    margin-right: 5px;
+    height: 100%;
+    width: 100%;
+}
+
+.groupImg img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.groupInfo {
+    padding: 0 10px 10px 10px;
+    height: 100% - 60pc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.groupInfo h2 {
+    margin: 10px;
+    font-size: 40px;
+    color: #6200ff;
+}
+
+.groupInfo p {
+    text-align: justify;
+    margin: 10px;
+    color: #434343;
+}
+
+.groupInfo button {
+    margin: 10px;
+    width: 400px;
+}
+
+.groupInfo button {
+    padding: 10px 30px 0px 30px;
+    border-radius: 50px;
+    border: navajowhite;
+    background-color: #6200ff;
+    color: white;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+
+
+/* main branch section */
+.mainBranch {
+    padding: 10px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 100% -20px;
+}
+
+/* .heading {
+    margin: 20px 0 0 10px;
+    color: #0c0f37;
+    font-size: 30px;
+}
+
+.logo {
+    margin-left: 10px;
+    display: flex;
+    width: 800px;
+    min-height: 135px;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    background-color: #ffffff2b;
+}
+
+.banner img {
+    width: 60%;
+    border-radius: 10px;
+}
+
+.logo img {
+    width: 100%;
+    /* height: 100%; */
+/* } */
+
+/* core team */
+/* .teamSection {
+    width: 100%;
+    background-color: rgb(255, 232, 244);
+}
+
+.teamSection h2 {
+    margin-bottom: 0;
+    padding: 20px 10px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.team {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    height: 400px;
+    overflow-x: auto;
+}
+
+.person {
+    flex: 0 0 300px;
+    position: relative;
+    width: 300px;
+    background-color: rgb(255, 255, 255);
+    height: 300px;
+    border-radius: 10px;
+} */
+
+/* .person img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+} */
+
+.person .info {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
+    position: absolute;
+    left: 50px;
+    bottom: -30px;
+    width: 200px;
+    padding: 10px;
+    height: 70px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgb(168, 168, 168);
+    background-color: white;
+}
+
+.person .info h3,
+.person .info p {
+    text-align: center;
+    margin: 0;
+    padding: 0px 0 0 0;
+}
+
+@media (orientation: portrait) {
+    .aboutUs .con {
+        margin: 0;
+        padding: 20px;
+    }
+
+    ail .con h2 {
+        margin-top: 0;
+        font-size: 20px;
+        font-weight: 900;
+    }
+
+    .con p {
+        font-size: 14px;
+    }
+
+}
+
+.mailus {
+    padding: 40px;
+    width: 100%;
+
+}
+
+.mail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.mail .img,
+.mail .info {
+    height: 100%;
+    width: 50%;
+    border-radius: 10px;
+
+}
+
+.mail .img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mail .img img {
+
+    width: 99%;
+}
+
+.mail .img {
+    /* background-color: #0066fe; */
+    padding: 20px;
+}
+
+.mail .info {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: #dedede; */
+}
+
+.sendMail {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.sendMail input,
+.sendMail textarea,
+.sendMail button,
+#acType,
+#serviceType,select {
+    min-width: 60%;
+    max-width: 100%;
+    font-size: 17px;
+    height: 50px;
+    padding: 14px 10px 6px 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    outline: 1.5px solid rgb(196, 196, 196);
+}
+
+.sendMail input:focus,
+.sendMail textarea:focus,
+#acType:focus,
+#serviceType:focus ,select:focus {
+    outline: none;
+    outline: 1.5px solid #6200ff;
+}
+
+
+.sendMail button {
+    font-weight: 700;
+    font-size: 17px;
+    background-color: #6200ff;
+    cursor: pointer;
+    color: white;
+}
+
+.mail .info a button {
+    height: 50px;
+    width: 300px;
+    padding: 14px 10px 6px 10px;
+    font-size: 17px;
+    border: none;
+    background-color: #6200ff;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+}
+
+.mjabout {
+    padding: 50px;
+    color: #3f3f3f;
+    text-align: justify;
+}
+
+@media (orientation:portrait) {
+    .mjabout {
+        padding: 5px;
+    }
+
+    .mail .info a button {
+        width: 297px;
+    }
+
+    .mailus {
+        padding: 10px;
+    }
+
+    .mail {
+        flex-direction: column;
+    }
+
+    .mail .img,
+    .mail .info {
+        width: 100%;
+    }
+
+    .sendMail input,
+    .sendMail textarea,
+    .sendMail button,
+    #acType,
+    #serviceType, select {
+        width: 100%;
+    }
+}
+
+
+.teamSection {
+    padding: 30px;
+    background-color: rgb(171, 221, 230);
+}
+
+.teamSection h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 0;
+    padding-bottom: 20px;
+}
+
+div.teamCon {
+    position: relative;
+}
+
+div.team {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-behavior: smooth;
+    width: 100%;
+    scroll-snap-type: x mandatory;
+  
+    height: 370px;
+}
+
+
+div.left_btn,
+div.right_btn {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    font-size: 25px;
+    z-index: 10000;
+    color: rgb(255, 255, 255);
+    background-color: #6200ff;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 1.65;
+}
+
+div.left_btn {
+    left: -15px;
+}
+
+div.right_btn {
+    right: -15px;
+}
+
+div.team::-webkit-scrollbar {
+    display: none;
+}
+
+div.team {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+div.person {
+    scroll-snap-align: left right;
+    cursor: pointer;
+    user-select: none;
+    flex-direction: column;
+    position: relative;
+    text-align: center;
+    margin: 0 50px;
+    background-color: #00000000;
+    width: 300px;
+    display: inline-flex;
+    height: 400px;
+    border-radius: 10px;
+
+}
+
+div.person img {
+    height: 300px;
+    width: 300px;
+    
+}
+
+div.person .info {
+    position: absolute;
+    top: 170px;
+    height: 60px;
+    padding: 10px;
+    width: 180px;
+    text-align: center;
+    left: 60px;
+    border-radius: 8px;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.151);
+}
+
+.info p,
+.info h3 {
+    margin: 0;
+}
+
+.sec21_span1 {
+    height: 40px;
+    width: 40px;
+    font-size: 22px;
+    margin: 0;
+    background-color: none !important;
+}
+
+
+/* Join us styles */
+
+*,
+body {
+    box-sizing: border-box;
+    font-family: 'khula';
+    margin: 0;
+    padding: 0;
+}
+
+.joinSection {
+    margin-top:10px ;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* padding-top: 50px; */
+}
+
+.joinBox {
+    height: 80vh;
+    width: 94%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.joinBox .head {
+    width: 100% - 40px;
+    height: 100px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    /* background-color: green; */
+}
+
+.head .joinIcon {
+    width: 36%;
+    height: 100%;
+    color: #000000;
+    font-size: 23px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.join .info {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    padding: 20px;
+    /* background-color: rebeccapurple; */
+}
+
+.join .info h3 {
+    font-size: 35px;
+    color: #ff6600;
+    margin-bottom: 7px;
+}
+
+.join .info h4 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 25px;
+    color: #0066fe;
+}
+
+.join .info p {
+    font-size: 17px;
+    color: #000000;
+}
+
+.join .info button {
+    margin: 20px 0;
+    padding:10px;
+    font-size: 25px;
+    font-weight: 600;
+    border: none;
+    background-color: #0066fe;
+    border-radius: 5px;
+    color: white;
+    width: 200px;
+}
+
+.join {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.join .photo {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    height: 90%;
+    width: 50%;
+}
+
+.photo img {
+    height: 100%;
+    width: 100%;
+   
+}
+
+@media (orientation:portrait) {
+    .joinBox {
+        width: fit-content;
+        height: fit-content;
+        margin: 10px 10px 0px 10px;
+        padding: 0 10px;
+    }
+
+    .join {
+        flex-direction: column-reverse;
+    }
+
+    .joinBox .head {
+        padding: 10px;
+        height: 50px;
+    }
+
+    .join .info,
+    .join .photo {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .join .info h3 {
+        font-size: 25px;
+    }
+
+    .join .info h4 {
+        font-size: 20px;
+    }
+
+    .join .info p {
+        font-size: 14px;
+    }
+
+    .join .info button {
+        width: 130px;
+        font-size: 20px;
+        font-weight: 300;
+
+    }
+
+    .head .joinIcon {
+        width: 50%;
+        font-size: 18px;
+    }
+
+    .head h1 {
+        margin-top: 4px;
+        font-size: 22px;
+    }
+
+}
+
+/* contact us page styles */
+.contactUs {
+
+    display: flex;
+    height: fit-content;
+
+}
+
+.contactUs .con {
+    width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+    height: 100%;
+    margin-bottom: 60px;
+}
+
+.con h2 {
+    font-size: 40px;
+    font-weight: 900;
+    color: #290f52;
+    margin-bottom: 20px;
+}
+
+.con p {
+    font-size: 20px;
+    color: #414141;
+    margin-bottom: 10px;
+}
+
+.contact0 {
+    width: 100% - 80px;
+    height: 250px;
+    margin: 40px 40px 0 40px;
+    display: flex;
+    flex-direction: row;
+}
+
+.contact1,
+.contact2 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 5px;
+    background-color: hwb(0 0% 100% / 0.05);
+    border-radius: 5px;
+    width: 50%;
+    height: 100%;
+}
+
+.userInfo {
+    width: 100%;
+    border-radius: 5px;
+
+}
+
+.chatInfo {
+    border-radius: 10px;
+
+    background-color: #0bab51;
+    color: #000000;
+}
+
+.userInfo h3 {
+    font-size: 23px;
+    color: rgb(0, 0, 0);
+    margin: 0;
+    padding: 20px 0px 0 20px;
+}
+
+.userInfo p {
+    /* padding: 20px; */
+    padding: 10px;
+    font-size: 13px;
+    color: #555555;
+    margin: 0;
+}
+
+.chatInfo a {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.chatInfo a i {
+    margin-right: 30px;
+    font-size: 40px;
+}
+
+.chatInfo a p {
+    margin: 0;
+    margin-top: 10px;
+    font-size: 23px;
+    color: rgb(255, 255, 255);
+}
+
+a {
+    text-decoration: none;
+}
+
+.callInfo,
+.locationInfo {
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.callInfo .info {
+    display: flex;
+    flex-direction: column;
+}
+
+.callInfo .info p,
+.locationInfo .info p {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    color: #4e4e4e;
+}
+
+.callInfo .info h4,
+.locationInfo .info h4 {
+    margin: 0;
+    padding: 0px;
+    font-size: 23px;
+}
+
+.callInfo .icon,
+.locationInfo .icon {
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 20px 10px 50px;
+}
+
+.callInfo .icon {
+    padding-top: 40px;
+}
+
+.online {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.online h3 {
+    color: rgb(87, 87, 87);
+    font-size: 25px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.online .icon {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.online .icon a i {
+    margin-right: 20px;
+}
+
+@media (orientation:portrait) {
+    .contactUs .con {
+        margin: 0;
+        padding: 20px;
+    }
+
+    .con h2 {
+        margin-top: 0;
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    .con p {
+        font-size: 18px;
+    }
+
+    .contact0 {
+        flex-direction: column;
+        margin: 0;
+        padding: 15px;
+        height: 510px;
+    }
+
+    .contact1,
+    .contact2 {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    .userInfo,
+    .chatInfo {
+        margin-bottom: 10px;
+    }
+
+    .callInfo .icon,
+    .locationInfo .icon {
+        margin: 0px 20px 10px 10px;
+    }
+
+    .callInfo .info h4,
+    .locationInfo .info h4 {
+        font-size: 19px;
+    }
+
+    .callInfo .info p,
+    .locationInfo .info p {
+        font-size: 15px;
+    }
+
+    .locationInfo {
+        margin-top: 10px;
+    }
+}
+
+/* book a service */
+.issue {
+    padding: 10px 40px;
+    display: flex;
+    gap: 140px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: rgb(0, 0, 0);
+    height: fit-content;
+    /* background-color: rgb(0, 0, 0); */
+}
+
+.issue .calling a button,
+.issue .chatting a button {
+    height: 50px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    background-color: #6200ff;
+    border: none;
+    border-radius: 10px;
+}
+
+.calling a button i,
+.chatting a button i {
+    padding-right: 10px;
+}
+
+@media (orientation:portrait) {
+    .issue {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+    }
+
+    .issue .calling,
+    .issue .chatting {
+        margin: 0 10px;
+        width: 94%;
+        height: 50px;
+    }
+
+    .issue .calling a button,
+    .issue .chatting a button {
+        width: 100%;
+    }
+}
+
+
+/* footer css style */
+
+div.footer {
+    /* margin-top: 70px; */
+    padding: 10px 20px 60px 20px;
+    display: flex;
+    height: fit-content;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: rgb(18, 26, 35);
+}
+
+.foot1,
+.foot2 {
+    padding-top: 70px;
+}
+
+.flogo::after {
+    position: absolute;
+    color: rgb(212, 212, 212);
+    content: "Repairing & Services";
+    font-size: 13px;
+    left: 7px;
+    bottom: -25px;
+    font-weight: 500;
+}
+
+.about_div {
+    width: 300px;
+    margin-top: 40px;
+    border-top: 2px solid rgb(154, 154, 154);
+}
+
+.about_div>p {
+    color: rgb(224, 224, 224);
+    padding-top: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 0.4px;
+}
+
+.footer21 {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.footer21>h4 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: rgb(255, 255, 255);
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgb(154, 154, 154);
+}
+
+div.footer11 {
+    display: block;
+    text-align: center;
+}
+
+div.footer2 {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer2_ul>li {
+    padding-top: 7px;
+}
+
+.footer2_ul>li>a {
+    font-size: 14px;
+    color: rgb(231, 231, 231);
+}
+
+.footer2_ul>li>a:hover {
+    color: rgb(25, 163, 173);
+}
+
+.footer_li_span {
+    font-size: 14px;
+    margin-right: 10px;
+    color: rgb(188, 188, 188);
+}
+
+.ss_link {
+    margin-top: 30px;
+    display: flex;
+    justify-content: left;
+}
+
+.ss_link>a {
+    margin-right: 10px;
+    padding: 3px;
+}
+
+.ss_span>i {
+    font-size: 25px;
+    color: white;
+}
+
+div.c_line {
+    margin: 0;
+    padding: 5px 15px;
+    text-align: center;
+    background-color: rgb(18, 23, 31);
+}
+
+.c_line>p {
+    color: rgb(239, 245, 252);
+    font-size: 13px;
+}
+
+@media screen and (max-width: 550px) {
+    .flogo::after {
+        font-size: 12px;
+        left: 3px;
+        bottom: -25px;
+    }
+}

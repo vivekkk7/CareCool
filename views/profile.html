@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - CareCool</title>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Khula:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <!-- google icon -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+    <!--Font awesome icon-->
+    <script src="https://kit.fontawesome.com/6ac775d87f.js" crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- AngularJs -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body>
+    <style>
+        * {
+            /* user-select: none; */
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .m_auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        h1,
+        h2,
+        h3 {
+            text-transform: capitalize;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .align-center {
+            align-items: center;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+    </style>
+
+
+    <!-- nav 2 -->
+    <nav class="nav2">
+        <div class="nav20 flex align-center">
+            <div><a href="javascript:void(0)" title="Sidebar Menu" class="threedot" id="threedot">&#9776;</a></div>
+            <!-- logo -->
+            <div class="logo"><a href="/">CareC<span class="logo_oo">oo</span>l</a></div>
+
+            <div class="navitem">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="javascript:void(0)">Services&nbsp;&nbsp;&nbsp;<i
+                                class="fa-solid fa-caret-down"></i></a>
+                        <ul class="navsub_ser_ul sub_ul">
+                            <li class="subul_head">Services</li>
+                            <li><a href="javascript:void(0)">Washing Machine</a></li>
+                            <li><a href="javascript:void(0)">Air Conditioner</a></li>
+                            <li><a href="javascript:void(0)">Refrigerator</a></li>
+                            <li><a href="javascript:void(0)">Television</a></li>
+                            <li><a href="javascript:void(0)">Mobiles</a></li>
+                            <li><a href="javascript:void(0)">Laptop</a></li>
+                            <li><a href="javascript:void(0)">Cooler</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/track">Track</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/about">About&nbsp;Us</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- naav btn -->
+        <div class="nav23 nav2_btn flex align-center" style="flex-wrap: nowrap;">
+            <!-- progress -->
+            <div class="navopt">
+                <a href="/track" title="Track Your Service"><i class="fa-solid fa-chart-gantt"></i></a>
+            </div>
+             <!-- appoint form -->
+             <div class="navopt">
+                <a href="/" title="Fill Appointment Form"><i class="fa-regular fa-file-lines"></i></a>
+            </div>
+           
+
+            <!-- user btn -->
+            <div class="srhbtn userbtn" title="Your Profile">
+                <i class="fa-solid fa-user"></i>
+            </div>
+        </div>
+    </nav>
+
+
+    <style>
+        .nav2 {
+            display: flex;
+            position: relative;
+            top: 0;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: nowrap;
+            height: 70px;
+            z-index: 1000000;
+            padding: 0 20px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 5px 4px -4px rgba(57, 76, 96, .15);
+        }
+        div.logo {
+            margin-left: 20px;
+        }
+        div.logo>a {
+            position: relative;
+            margin-left: 5px;
+            color: #2593d2;
+            font-weight: 800;
+            font-size: 26px;
+        }
+
+        span.logo_oo {
+            position: relative;
+            visibility: hidden;
+        }
+
+        span.logo_oo:before {
+            content: "oo";
+            top: -3px;
+            font-size: 23px;
+            animation: squash 1.5s linear infinite;
+            animation-delay: 2s;
+        }
+
+        span.logo_oo:before,
+        span.logo_oo:after {
+            position: absolute;
+            left: 50%;
+            bottom: 5px;
+            visibility: visible;
+            transform: translateX(-50%);
+        }
+
+        span.logo_oo:after {
+            content: "";
+            bottom: 5px;
+            width: 20px;
+            height: 5px;
+            border: 3px solid #31a0e1;
+            border-top: 0;
+            -moz-border-radius: 0 0 120px 120px / 0 0 90px 90px;
+            -webkit-border-radius: 0 0 120px 120px 0 0 90px 90px;
+            border-radius: 0 0 120px 120px / 0 0 90px 90px;
+        }
+
+        @keyframes squash {
+            0% {
+                transform: translate(-50%, 0%) scaleX(0.80) scaleY(1.20);
+            }
+
+            50% {
+                transform: translate(-50%, 0%) scaleX(1) scaleY(1);
+                animation-delay: 1s;
+            }
+
+            100% {
+                transform: translate(-50%, 0%) scaleX(0.80) scaleY(1.20);
+            }
+        }
+
+        .nav23_span:last-child {
+            margin-right: 0;
+        }
+
+        .nav23_span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 35px;
+            width: 35px;
+            margin: 5px 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            background-color: #e2efed;
+            border-radius: 50%;
+        }
+
+        .nav23_span i {
+            font-size: 17px;
+            color: #39596a;
+        }
+
+        .navitem>ul {
+            display: flex;
+            margin-left: 40px;
+        }
+
+        .navitem>ul>li {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .navitem>ul>li>a,
+        .sub_ul>li>a
+         {
+            color: black;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 23px 20px;
+            margin: 0 1px;
+            font-family: 'Khula';
+        }
+
+        .sub_ul
+        {
+            display: none;
+            position: absolute;
+            top: 65px;
+            width: 200px;
+            padding: 5px 0;
+            background-color: white;
+            box-shadow: 4px 4px 8px 2px rgba(57, 76, 96, .15);
+            border-radius: 7px;
+        }
+
+        .sub_ul>li,
+        .sub_ul>li>a
+        {
+            padding: 5px 10px;
+        }
+
+        .navitem>ul>li:hover .sub_ul {
+            display: block;
+        }
+
+        .subul_head {
+            font-size: 16px;
+            margin-left: 5px;
+            font-weight: 700;
+        }
+
+       
+
+
+        .srhbtn,
+        .threedot,
+        .navopt>a {
+            cursor: pointer;
+            padding: 10px 14px;
+            margin: 1px;
+            font-weight: 600;
+            border-radius: 5px;
+        }
+
+        .srhbtn {
+            font-size: 19px;
+        }
+
+        .navopt>a,
+        .userbtn {
+            font-size: 17px;
+        }
+
+        .threedot {
+            display: none;
+            color: black;
+            padding: 10px;
+        }
+
+        .sub_ul>li>a:hover:not(:first-child),
+        .navitem>ul>li>a:hover, .srhbtn:hover,
+        .threedot:hover,
+        .navopt>a:hover {
+            color: rgb(0, 171, 233);
+        }
+
+        #search_btn {
+            display: none;
+        }
+
+        @media screen and (max-width: 1000px) {
+            .navitem>ul {
+                margin-left: 30px;
+            }
+
+            .navitem>ul>li>a {
+                padding: 10px 15px;
+            }
+
+            .navitem>ul>li:last-child {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 850px) {
+            .navitem {
+                display: none;
+            }
+
+            div.logo {
+                margin-left: 0;
+            }
+
+            .threedot {
+                display: block;
+            }
+        }
+
+        @media screen and (max-width: 950px) {
+            .hide_s1 {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 750px) {
+
+            .nav1,
+            .nav2 {
+                padding-left: 4px !important;
+                padding-right: 4px !important;
+            }
+
+            .hide_s1 {
+                display: flex;
+            }
+        }
+
+        @media screen and (max-width: 550px) {
+            .hide_s1 {
+                display: none;
+            }
+
+            .signup_btn,
+            .srhbtn,
+            .threedot {
+                padding: 10px;
+            }
+        }
+    </style>
+    
+    <!-- profile con -->
+
+    <section class="pf_con">
+        <div class="pf1">
+            <h2 class="pf_name">
+                <%=pdata.pname%>
+            </h2>
+            <p class="pf_email">
+                <%=pdata.pemail%>
+            </p>
+            <p>
+                <%=pdata.pmob%>
+            </p>
+            <p>
+                <%=pdata.paddress%>
+            </p>
+
+            <div class="lgbtn" id="lgbtn1" onclick="logout()">Logout</div>
+        </div>
+
+        <div class="pf11">
+            <div class="pf2 flex align-center">
+                <div class="pf21" id="appoint">
+                    <h3 class="pf21_h3">Make Appointment</h3>
+                    <p class="pf21_p">Fill now</p>
+                </div>
+
+                <div class="pf21" id="acc">
+                    <h3 class="pf21_h3">Account detail</h3>
+                    <p class="pf21_p">Edit now</p>
+                </div>
+
+                <div class="pf21" id="track">
+                    <h3 class="pf21_h3">Track product</h3>
+                    <p class="pf21_p">View now</p>
+                </div>
+
+                <div class="pf21" id="complaint">
+                    <h3 class="pf21_h3">Complaint</h3>
+                    <p class="pf21_p">Write here</p>
+                </div>
+            </div>
+
+        </div>
+    <!--info container -->
+    <div class="info_con">
+        <div class="statusdiv" <%-display%>>
+            <h2 class="info_h2">service status :</h2>
+            <div class="tbcon">
+                <table class="table">
+                    <thead>
+                      <th>S.N.</th>
+                      <th>Form filled on</th>
+                      <th>Trackid</th>
+                      <th>Service</th>
+                      <th>Visiting on</th>
+                      <th>Mechanic Visit</th>
+                      <th>Shop address</th>
+                      <th>Delivery date</th>
+                      <th>Status</th>
+                    </thead>
+                    <tbody>
+                      <%-trackdata%>                          
+                    </tbody>
+                  </table>  
+            </div>
+        </div>
+    </div>
+
+    <div class="pf3 lgbtn" onclick="logout()">Logout</div>
+</section>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#acc').click(function () {
+                window.location.href = '/account';
+            });
+            $('#track').click(function () {
+                window.location.href = '/track';
+            });
+            $('#appoint').click(function () {
+                window.location.href = '/#appointmentform';
+            });
+            $('#complaint').click(function () {
+                window.location.href = '/complaint';
+            });
+
+        });
+    </script>
+
+    <style>
+        div.info_con{
+            margin-top: 50px;
+            padding: 20px;
+        }
+        .tbcon{
+            width: 100%;
+            overflow-x: auto;
+        }
+        .info_h2{
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table td,
+        .table th {
+            word-wrap: break-word;
+            padding: 12px 15px;
+            border: 1px solid #c0c0c0;
+            text-align: center;
+            font-size: 16px;
+        }
+        .table td:not(:nth-child(1)),
+        .table th:not(:nth-child(1)) {
+            min-width: 150px;
+            max-width: 250px;
+        }
+
+        .table th {
+            font-size: 14px;
+            background-color: #23bcf8;
+            color: #000000;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #ececec;
+        }
+
+        .table td:nth-child(1), .table th:nth-child(1) {
+            width: 50px;
+        }
+
+
+        @media (max-width: 1200px) {
+            .table thead {
+                display: none;
+            }
+
+            .table td:nth-child(1), .table th:nth-child(1) {
+                width: 100%;
+            }
+
+            .table td:not(:nth-child(1)),
+        .table th:not(:nth-child(1)) {
+            min-width: 150px;
+            max-width: 100%;
+        }
+
+            .table tr,
+            .table td {
+                display: block;
+                width: 100%;
+            }
+
+            .table tr {
+                margin-bottom: 15px;
+            }
+
+            .table td {
+                padding-left: 40%;
+                text-align: left;
+                position: relative;
+            }
+
+            .table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 40%;
+                padding-left: 15px;
+                font-size: 15px;
+                font-weight: bold;
+                text-align: left;
+            }
+        }
+
+        section.pf_con {
+            position: relative;
+            width: 100%;
+            height: fit-content;
+            overflow-x: hidden;
+        }
+
+        div.pf1 {
+            position: relative;
+            display: block;
+            padding: 45px 60px;
+            background: rgb(154, 241, 255);
+            background: linear-gradient(348deg, rgba(154, 241, 255, 1) 0%, rgba(61, 201, 255, 1) 100%);
+            height: 300px;
+        }
+
+        .lgbtn {
+            cursor: pointer;
+            padding: 10px 35px;
+            color: white;
+            background-color: black;
+            font-weight: 700;
+            border-radius: 10px;
+        }
+
+        #lgbtn1 {
+            position: absolute;
+            top: 80px;
+            right: 50px;
+        }
+
+        .pf_name {
+            font-size: 33px;
+            margin: 10px 0;
+        }
+
+        .pf1>p {
+            margin: 8px;
+        }
+
+        div.pf11 {
+            width: 100%;
+            position: absolute;
+            top: 230px;
+            left: 0;
+        }
+
+        div.pf2 {
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        div.pf21 {
+            cursor: pointer;
+            position: relative;
+            padding: 22px 27px;
+            height: 130px;
+            width: calc(20% - 34px);
+            min-width: 250px;
+            margin: 0 17px 30px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 30px;
+            box-shadow: 0 5px 4px -4px rgba(57, 76, 96, .15);
+        }
+
+        div.pf21::after {
+            position: absolute;
+            top: 42px;
+            right: 25px;
+            font-size: 20px;
+            content: "\f054";
+            font-family: "Font Awesome 6 Pro";
+            font-weight: 700;
+            color: rgb(70, 70, 70);
+        }
+
+        .pf21_p,
+        .pf21_h3 {
+            margin: 12px 5px;
+            font-size: 15px;
+            color: rgb(70, 70, 70);
+        }
+
+        .pf21_h3 {
+            font-weight: 700;
+            font-size: 17px;
+        }
+
+        div.pf3 {
+            display: none;
+            margin: 50px 20px 20px;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 1435px) {
+            div.pf21 {
+                width: calc(25% - 34px);
+            }
+        }
+
+        @media screen and (max-width: 1135px) {
+            div.pf21 {
+                width: calc(33% - 34px);
+            }
+            div.info_con{
+            margin-top: 190px;
+            }
+        }
+
+        @media screen and (max-width: 850px) {
+            div.pf3 {
+                display: block;
+            }
+
+            #lgbtn1 {
+                display: none;
+            }
+
+            div.pf1 {
+                padding: 40px 30px;
+            }
+
+            div.pf21 {
+                width: calc(100% - 30px);
+                margin: 0 15px;
+                border-radius: 0px;
+                height: 90px;
+                padding: 4px 20px;
+            }
+
+            div.pf21:nth-child(1) {
+                border-radius: 20px 20px 0 0;
+            }
+
+            div.pf21:last-child {
+                border-radius: 0 0 20px 20px;
+            }
+            div.info_con{
+            margin-top: 270px;
+            }
+        }
+
+        @media screen and (max-width: 550px) {
+            .pf_name {
+                font-size: 25px;
+            }
+
+            div.pf1 {
+                display: block;
+                padding: 40px 25px;
+            }
+        }
+    </style>
+
+    
+    <script>
+        function logout() {
+            document.cookie = "userid= ; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+            document.cookie = "field= ; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+            window.location.href = "/";
+        }       
+    </script>
+
+    <!-- sidebar -->
+    <div class="sidebar">
+        <div class="sidebar1">
+            <div class="close_side"><span>&times;</span></div>
+            <div class="side_profile"><a href="/profile"><span class="sideicon"><i
+                            class="fa-regular fa-circle-user"></i></span>Profile</a></div>
+            <ul class="side_ul">
+                <li><a href="/"><span class="sideicon"><i class="fa-solid fa-house"></i></span>Home</a></li>
+                <li><a href="/"><span class="sideicon"><i class="fa-solid fa-wrench"></i></span>Appointment Form</a></li>
+                <li><a href="/track"><span class="sideicon"><i class="fa-solid fa-location-arrow"></i></span>Track</a></li>
+                <li><a href="/contact"><span class="sideicon"><i
+                                class="fa-solid fa-mobile-screen-button"></i></span>Contact</a></li>
+                <li><a href="/about"><span class="sideicon"><i class="fa-regular fa-star"></i></span>About us</a></li>
+                <li onclick="logout()"><a href="Javascript:void(0)"><span class="sideicon lgoutbtn"><i class="fa-solid fa-right-from-bracket"></i></span>LogOut</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <style>
+        div.sidebar {
+            position: fixed;
+            height: 100vh;
+            width: 300px;
+            background-color: rgb(249, 250, 251);
+            top: 00px;
+            left: -500px;
+            z-index: 100000;
+            font-weight: 600;
+            transition: all .5s ease;
+        }
+
+        .sidebar1 {
+            position: relative;
+            padding: 10px;
+            margin-top: 70px;
+        }
+
+        .close_side {
+            position: absolute;
+            right: 20px;
+            font-size: 22px;
+            line-height: 1px;
+            top: 15px;
+            cursor: pointer;
+            padding: 16px 10px;
+            border-radius: 50%;
+            background-color: rgb(241, 239, 253);
+        }
+
+        .side_profile {
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .side_profile>a {
+            color: black;
+        }
+
+        .side_ul>li {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .side_ul>li>a {
+            color: black;
+        }
+
+        .side_ul>li:hover a,
+        .close_side:hover {
+            color: rgb(1, 141, 141);
+        }
+
+        .sideicon {
+            margin-right: 20px;
+            padding-left: 10px;
+        }
+    </style>
+    <script>
+        $('#threedot').click(function () {
+            var sidebar = $(".sidebar");
+            if (sidebar.css("left") === "0px") {
+                sidebar.css("left", "-500px");
+            } else {
+                sidebar.css("left", "0px");
+            }
+        });
+        $('.close_side').click(function () {
+            $('.sidebar').css('left', '-500px');
+        });
+    </script>
+
+</body>
+
+</html>
