@@ -74,6 +74,8 @@
 </head>
 
 <body>
+    <%- include('partials/alertboxAndLoader') %>
+
     <!-- nav 1 -->
     <nav class="nav1">
         <ul class="nav1_ul2">
@@ -534,15 +536,15 @@
         function profile() {
             window.location.href = "/profile";
         }
-        document.getElementById('bell_btn').addEventListener('click', function () {
-            let dt = document.getElementsByClassName('bell_condiv')[0];
-            if (dt.style.display === "block") {
-                dt.style.display = "none";
-            }
-            else {
-                dt.style.display = "block";
-            }
-        });
+        // document.getElementById('bell_btn').addEventListener('click', function () {
+        //     let dt = document.getElementsByClassName('bell_condiv')[0];
+        //     if (dt.style.display === "block") {
+        //         dt.style.display = "none";
+        //     }
+        //     else {
+        //         dt.style.display = "block";
+        //     }
+        // });
     </script>
 
     <!-- mainhead -->
@@ -993,57 +995,6 @@
         showSlides();
     </script>
 
-    <!-- err notification -->
-    <div id="apt_msgdiv">
-        <div id="apt_msgdiv2">
-            <p id="apt_msg"></p>
-            <p id="msg_cross">&times;</p>
-        </div>
-    </div>
-    <style>
-        #apt_msgdiv {
-            display: inline;
-            position: fixed;
-            left: 50%;
-            top: -100px;
-            /* top: 20px; */
-            width: 100vw;
-            z-index: 1000000000000000000;
-            transition: top 0.3s ease;
-        }
-
-        #apt_msgdiv2 {
-            padding: 8px 40px 8px 15px;
-            transform: translateX(-50%);
-            background-color: rgb(225, 255, 236);
-            color: green;
-            border-radius: 10px;
-            position: relative;
-            max-width: 500px;
-            min-width: 200px;
-            width: fit-content;
-        }
-
-        #apt_msg {
-            margin: 5px auto;
-            font-size: 14px;
-            height: fit-content;
-        }
-
-        #msg_cross {
-            position: absolute;
-            right: 7px;
-            top: 0;
-            margin: 1px;
-            font-size: 23px;
-            padding: 5px;
-            cursor: pointer;
-        }
-
-        #msg_cross:hover {
-            color: black;
-        }
-    </style>
 
     <!-- appoint section -->
     <section class="apt_sec flex" id="appointmentform">
@@ -1377,12 +1328,10 @@
                 .then(data => {
                     console.log('s1');
                     if (data.isappoint == true) {
-                        $('#apt_msgdiv').css('top', '20px');
-                        $('#apt_msgdiv2').css('color', 'green').css('background-color', 'rgb(225, 255, 236)');
-
+                       
                         $('#sending').hide();
                         $(submitbtn).show().val('Submitted');
-                        $('#apt_msg').text("Form submitted successfully. Redirecting to profile.");
+                        showAlert("Form submitted successfully. Redirecting to profile.", "positive");
                         const expires = new Date();
                         expires.setDate(expires.getDate() + 365);
                         document.cookie = `userid=${data.cookie}; expires=${expires.toUTCString()}; SameSite=Lax; path=/`;
@@ -1392,9 +1341,8 @@
                         }, 2000);
                     }
                     else if (data.isappoint == false) {
-                        $('#apt_msgdiv').css('top', '20px');
-                        $('#apt_msgdiv2').css('color', 'red').css('background-color', 'rgb(255, 225, 225)');
-                        $("#apt_msg").text(data.aerror);
+                        
+                        showAlert(data.aerror, "negative");
                         $('#sending').hide();
                         $(submitbtn).show()
 
@@ -1405,10 +1353,9 @@
                         aptForm.style.opacity = '1';
                     }
                     else {
-                        $('#apt_msgdiv').css('top', '20px');
-                        $('#apt_msgdiv2').css('color', 'red').css('background-color', 'rgb(255, 225, 225)');
-                        $("#apt_msg").text("Something went wrong. Please try again.");
+                        
                         $('#sending').hide();
+                        showAlert("Something went wrong. Please try again.", "negative");
                         $(submitbtn).show()
                         submitbtn.disabled = false;
                         aptForm.style.opacity = '1';
@@ -1416,19 +1363,16 @@
                 })
                 .catch(error => {
                     console.log("Form error : " + error);
-                    $('#apt_msgdiv').css('top', '20px');
-                    $('#apt_msgdiv2').css('color', 'red').css('background-color', 'rgb(255, 225, 225)');
-                    $("#apt_msg").text("Oops! Something went wrong. Refreshing page. Please try again.");
+                    
                     $('#sending').hide();
+                    showAlert("Oops! Something went wrong. Refreshing page. Please try again.", "negative");
                     $(submitbtn).show()
                     submitbtn.disabled = false;
                     aptForm.style.opacity = '1';
                 });
         });
 
-        $('#msg_cross').click(function () {
-            $('#apt_msgdiv').css('top', '-100px');
-        });
+        
     </script>
 
 

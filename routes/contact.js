@@ -13,15 +13,6 @@ router.use(cookieParser());
 router.use(express.json());
 
 
-var con = mysql.createConnection({
-  host: process.env.HOST,
-  user: process.env.USER,
-  port: process.env.SPORT,
-  password: process.env.SPASS,
-  database: process.env.SDNAME
-});
-
-
 const ripeuser = {
    mechreg: ` <div class="signup_btn" id="mech_sign" >
    <p>Mechanic</p>
@@ -54,15 +45,12 @@ const rawuser = {
 router.get('/', (req, res) => {
     try {
         let userid2 = req.cookies.userid;
-    
-
-        con.connect(function (err) {
-            
+     
                     if (userid2) {
 
                         let sq12 = 'SELECT userid FROM signup WHERE userid = ? UNION SELECT userid FROM user_profile WHERE userid = ?;';
 
-                        con.query(sq12, [userid2, userid2], function (err, result, fields) {
+                        req.con.query(sq12, [userid2, userid2], function (err, result, fields) {
                             if (err) throw err;
 
                             if (result.length == 0) {
@@ -80,7 +68,7 @@ router.get('/', (req, res) => {
                     else {
                         res.render('contact', ripeuser);
                     }
-                });
+                
 
     } catch (error) {
         console.error('Error:', error);
@@ -97,7 +85,7 @@ router.post("/greencheck", (req, res) => {
     // Store data in the database
     const sql =
       "INSERT INTO contact (name, mob, email, msg, entry_date, entry_time) VALUES (?, ?, ?, ?, ?, ?)";
-    con.query(sql, [name, number, email, message, moment().format('DD-MM-YYYY'), moment().format('HH:mm:ss')], (err, result) => {
+    req.con.query(sql, [name, number, email, message, moment().format('YYYY-MM-DD'), moment().format('HH:mm:ss')], (err, result) => {
       if (err) {
         console.error(err);
         res.status(500).send("Internal Server Error");

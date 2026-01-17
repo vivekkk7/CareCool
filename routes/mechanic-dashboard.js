@@ -14,13 +14,7 @@ router.use(cookieParser());
 router.use(express.json());
 
 
-var con = mysql.createConnection({
-    host: process.env.HOST,
-    user: process.env.USER,
-    port: process.env.SPORT,
-    password: process.env.SPASS,
-    database: process.env.SDNAME
-});
+
 
 
 // profile
@@ -35,16 +29,12 @@ router.get('/', (req, res) => {
         }
 
     if (userid3) {
-        con.connect(function (err) {
-            if (err) {
-                res.writeHead(404, { 'Content-Type': 'text/html' });
-                return res.end("404 not found");
-            }
+   
 
             if (field == 'mechanic') {
                 let sq13 = 'select * from mechanics where userid = ?;';
                 let service = [];
-                con.query(sq13, [userid3], function (err, result, fields) {
+                req.con.query(sq13, [userid3], function (err, result, fields) {
                     if (err) {
                         res.writeHead(404, { 'Content-Type': 'text/html' });
                         return res.end("404 not found");
@@ -78,7 +68,6 @@ router.get('/', (req, res) => {
             else {
                 res.redirect('/auth');
             }
-        });
     }
     else {
         res.redirect('/auth');
@@ -94,15 +83,10 @@ router.get('/request', (req, res) => {
         let field = req.cookies.field;
         if (userid) {
 
-            con.connect(function (err) {
-                if (err) {
-                    res.writeHead(404, { 'Content-Type': 'text/html' });
-                    return res.end("404 not found");
-                }
 
                 if (field == 'mechanic') {
                     let sq1 = 'select * from mechanics where userid = ?;';
-                    con.query(sq1, [userid], function (err, result, fields) {
+                    req.con.query(sq1, [userid], function (err, result, fields) {
                         if (err) {
                             res.writeHead(404, { 'Content-Type': 'text/html' });
                             return res.end("404 not found");
@@ -110,7 +94,7 @@ router.get('/request', (req, res) => {
 
                         if (result.length > 0) {
                             let sq12 = "SELECT appoint.*, track.* FROM appoint JOIN track ON appoint.trackid = track.trackid WHERE track.muserid = ? order by appoint_date desc, appoint_time desc;";
-                            con.query(sq12, [userid], function (err, result, fields) {
+                            req.con.query(sq12, [userid], function (err, result, fields) {
                                 if (err) {
                                     res.writeHead(404, { 'Content-Type': 'text/html' });
                                     return res.end("404 not found");
@@ -217,7 +201,7 @@ router.get('/request', (req, res) => {
                 }
                 else {
                     let sq11 = "select * from signup where userid = ?;";
-                    con.query(sq11, [userid], function (err, result, fields) {
+                    req.con.query(sq11, [userid], function (err, result, fields) {
                         if (err) {
                             res.writeHead(404, { 'Content-Type': 'text/html' });
                             return res.end("404 not found");
@@ -238,7 +222,6 @@ router.get('/request', (req, res) => {
 
                     });
                 }
-            });
         }
         else {
             res.redirect('/auth');
@@ -280,28 +263,21 @@ router.post('/statusupdate', mymulter.none(), async (req, res) => {
         }
 
 
-        await new Promise((resolve, reject) => {
-            con.connect(function (err) {
-                if (err) {
-                    con.end();
-                    res.json({ info: false, error: err });
-                    reject(err);
-                    return;
-                }
+
                 console.log('s4');
                 let sql = `select * from track where muserid = ? and trackid = ?;`;
-                con.query(sql, [muserid, trackid], (err, result) => {
+                req.con.query(sql, [muserid, trackid], (err, result) => {
                     if (err) {
-                        con.end();
+                        
                         res.json({ info: false, error: err });
-                        reject(err);
+                        
                         return;
                     }
                     if (result.length == 0) {
-                        con.end();
+                        
                         res.json({ info: false, error: 'No data in track table' });
                         console.log('s5');
-                        reject(err);
+                        
                         return;
                     }
                     else {
@@ -309,23 +285,22 @@ router.post('/statusupdate', mymulter.none(), async (req, res) => {
                         let values = [sdate, visit, address, ddate, status, trackid];
 
                         let sql = `update track set visiting_date = ?, visited_date = ?, shop_address1 = ?, delivery_date = ?, finish = ? where trackid = ?;`;
-                        con.query(sql, values, (err, result) => {
+                        req.con.query(sql, values, (err, result) => {
                             if (err) {
-                                con.end();
+                                
                                 res.json({ info: false, error: err });
-                                reject(err);
+                                
                                 return;
                             }
                             console.log('s6');
                             res.json({ info: true, error: "Track table updated" });
                             console.log('s7');
-                            resolve();
+                            
                             return;
                         });
                     }
                 });
-            });
-        });
+       
     } catch (error) {
         console.log('s8');
         console.error('Error in updatetrack: ', error);

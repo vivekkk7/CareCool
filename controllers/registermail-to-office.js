@@ -7,14 +7,14 @@ async function registerMailToOffice(data, service, retryCount = 2, delayBetweenR
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'carecool.info@gmail.com',
-        pass: 'ydujmdpfymexuwly'
+        user: process.env.WEBSITE_EMAIL_FOR_SENDING_EMAIL_TO_ALL,
+        pass: process.env.WEBSITE_EMAIL_APP_PASSWORD
       }
     });
 
     const mailOptions = {
-      from: 'carecool.info@gmail.com',
-      to: 'ivlog.site@gmail.com',       //office email
+      from: process.env.WEBSITE_EMAIL_FOR_SENDING_EMAIL_TO_ALL,
+      to: process.env.ADMIN_EMAIL,       //admin email
       subject: 'Someone apply for mechanic registration',
       html: `<h3>Someone apply for mechanic registration.</h3>
             <p>Registration details are as : </p>

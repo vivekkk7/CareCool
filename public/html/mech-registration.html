@@ -368,10 +368,8 @@
                     if (data.isappoint == true) {
                         $('#apt_msgdiv').css('top', '20px');
                         $('#apt_msgdiv2').css('color', 'green').css('background-color', 'rgb(225, 255, 236)');
-                        $('#apt_msg').text("Form submitted successfully. Redirecting to Home page.");
-                        setTimeout(() => {
-                            window.location.href = "/";
-                        }, 5000);
+                        $('#apt_msg').text("Form submitted successfully. We will contact you soon. See email for more info.");
+                        
                         $('#msubmit_btn').show().val('Submitted');
                          $('#sending').hide();
                     }

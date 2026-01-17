@@ -7,13 +7,13 @@ async function mechApproved(name, email, retryCount = 2, delayBetweenRetries = 2
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'carecool.info@gmail.com',
-        pass: 'ydujmdpfymexuwly'
+        user: process.env.WEBSITE_EMAIL_FOR_SENDING_EMAIL_TO_ALL,
+        pass: process.env.WEBSITE_EMAIL_APP_PASSWORD
       }
     });
 
     const mailOptions = {
-      from: 'carecool.info@gmail.com',
+      from: process.env.WEBSITE_EMAIL_FOR_SENDING_EMAIL_TO_ALL,
       to: email,
       subject: 'Your request accepted as mechanic in CareCool',
       html: `<h3>Congratulation! ${name}, now you are a mechanic in CareCool.</h3>

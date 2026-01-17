@@ -11,13 +11,7 @@ router.use(cookieParser());
 router.use(express.json());
 
 
-var con = mysql.createConnection({
-    host: process.env.HOST,
-    user: process.env.USER,
-    port: process.env.SPORT,
-    password: process.env.SPASS,
-    database: process.env.SDNAME
-});
+
 
 
 const ripeuser = {
@@ -53,9 +47,8 @@ router.get('/', (req, res) => {
     try {
         let userid2 = req.cookies.userid;
 
-        con.connect(function (err) {
 
-            con.query('SELECT * FROM review', (err, results) => {
+            req.con.query('SELECT * FROM review', (err, results) => {
                 if (err) {
                     console.error(err);
                     res.status(500).send('Internal Server Error');
@@ -67,7 +60,7 @@ router.get('/', (req, res) => {
 
                         let sq12 = 'SELECT userid FROM signup WHERE userid = ? UNION SELECT userid FROM user_profile WHERE userid = ?;';
 
-                        con.query(sq12, [userid2, userid2], function (err, result, fields) {
+                        req.con.query(sq12, [userid2, userid2], function (err, result, fields) {
                             if (err) throw err;
 
                             if (result.length == 0) {
@@ -87,7 +80,6 @@ router.get('/', (req, res) => {
                     }
                 }
             });
-        });
 
     } catch (error) {
         console.error('Error:', error);
@@ -101,7 +93,7 @@ router.post('/', (req, res) => {
     const rating=req.body.rating;
     const reviewText=req.body.review;
    
-    con.query('INSERT INTO review (name, rating, reviewText, entry_date, entry_time) VALUES (?, ?, ?)', [name, rating, reviewText, moment().format('DD-MM-YYYY'), moment().format('HH:mm:ss')], (err, results) => {
+    req.con.query('INSERT INTO review (name, rating, reviewText, entry_date, entry_time) VALUES (?, ?, ?)', [name, rating, reviewText, moment().format('YYYY-MM-DD'), moment().format('HH:mm:ss')], (err, results) => {
         if (err) {
             console.error(err);
             res.status(500).send('Internal Server Error');

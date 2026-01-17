@@ -7,14 +7,14 @@ async function contactMail(name, number, email, message, retryCount = 2, delayBe
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'carecool.info@gmail.com',
-        pass: 'ydujmdpfymexuwly'
+        user: process.env.WEBSITE_EMAIL_FOR_SENDING_EMAIL_TO_ALL,
+        pass: process.env.WEBSITE_EMAIL_APP_PASSWORD
       }
     });
 
     const mailOptions = {
-        from: "hasanabbass638@gmail.com",
-        to: "hasanabbass638@gmail.com",
+        from: process.env.WEBSITE_EMAIL_FOR_SENDING_EMAIL_TO_ALL,
+        to: process.env.ADMIN_EMAIL,
         subject: "New Contact Form Submission",
         text: `Name: ${name}\nNumber: ${number}\nEmail: ${email}\nMessage: ${message}`,
       };

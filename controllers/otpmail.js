@@ -7,13 +7,13 @@ async function sendMail(user_email, ucode, link, retryCount = 2, delayBetweenRet
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'carecool.info@gmail.com',
-        pass: 'ydujmdpfymexuwly'
+        user: process.env.WEBSITE_EMAIL_FOR_SENDING_EMAIL_TO_ALL,
+        pass: process.env.WEBSITE_EMAIL_APP_PASSWORD
       }
     });
 
     const mailOptions = {
-      from: 'carecool.info@gmail.com',
+      from: process.env.WEBSITE_EMAIL_FOR_SENDING_EMAIL_TO_ALL,
       to: user_email,
       subject: 'Verify your email in CareCool',
       html: `<p>Your email verification code is <b>${ucode}</b>.<br /><p style='text-align:center;'> <b>OR</b> </p>

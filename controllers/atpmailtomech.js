@@ -7,13 +7,13 @@ async function aptMailToMech(data, mechemail, retryCount = 2, delayBetweenRetrie
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'carecool.info@gmail.com',
-        pass: 'ydujmdpfymexuwly'
+        user: process.env.WEBSITE_EMAIL_FOR_SENDING_EMAIL_TO_ALL,
+        pass: process.env.WEBSITE_EMAIL_APP_PASSWORD
       }
     });
 
     const mailOptions = {
-      from: 'carecool.info@gmail.com',
+      from: process.env.WEBSITE_EMAIL_FOR_SENDING_EMAIL_TO_ALL,
       to: mechemail,
       subject: 'Someone requested a service',
       html: `<h3>Accept someone service request.</h3>

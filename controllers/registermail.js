@@ -7,13 +7,13 @@ async function registerMail(data, service, retryCount = 2, delayBetweenRetries =
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'carecool.info@gmail.com',
-        pass: 'ydujmdpfymexuwly'
+        user: process.env.WEBSITE_EMAIL_FOR_SENDING_EMAIL_TO_ALL,
+        pass: process.env.WEBSITE_EMAIL_APP_PASSWORD
       }
     });
 
     const mailOptions = {
-      from: 'carecool.info@gmail.com',
+      from: process.env.WEBSITE_EMAIL_FOR_SENDING_EMAIL_TO_ALL,
       to: data[2],
       subject: 'Registration form submitted successfully',
       html: `<h3>Registration form  received.</h3>
